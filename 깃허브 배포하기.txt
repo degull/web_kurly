@@ -1,0 +1,51 @@
+깃허브 배포하기
+
+https://github.com/degull/web_kurly.git
+
+1. 폴더명 파일명 공백없이 글자길이 250자 이하로 준비
+2. 깃설정
+$git init
+
+3. 깃 환경설정
+$git config user.name 'degull'
+$git config user.email 'skytmdgus99@gmail.com'
+
+4. git remote origin 추가하기 : repository 생성 
+https://github.com/degull/web_kurly.git
+
+& git remote add origin https://github.com/degull/web_kurly.git
+
+5. 깃 스테이징
+$git add.
+
+6. 깃 커밋하기
+$git commit -m"마켓컬리 웹개발"
+
+리포지토리 생성 후 setting -> pages
+-> Branch : main으로 설정 후 save
+
+8. 배포주소 url => 을 package.json에 등록하기
+   "homepage" : https://degull.github.io/web_kurly/
+
+9. 웹페이지 배포 패키지 설치 : gh-pages
+
+npm install gh-pages
+
+10. 설치하고 package.json 열기
+ "scripts" {} 내용변경하기
+   =>
+   "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+
+    "predeploy" : "npm run build",
+    "deploy" : "gh-pages -b main -d build"
+  },
+
+  11. 배포 실행하기
+  $npm run deploy
+
+  12. 완료 => 깃허브 repository => 새로고침
+  13. 
